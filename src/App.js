@@ -2,31 +2,31 @@ import React, { useState } from "react";
 import "./App.css";
 import Person from "./Person/Person";
 
-const app = (props) => {
+const App = (props) => {
   const [personsState, setPersonsState] = useState({
     persons: [
-      { name: "Max", age: 28 },
-      { name: "Kata", age: 26 },
+      { name: "Kate", age: 26 },
       { name: "Serhii", age: 26 },
+      { name: "Max", age: 28 },
     ],
     otherState: "some other value",
   });
 
   const switchNameHandler = () => {
     // console.log("Was clicked!");
-    // DO NOT DO THIS ---. this.state.persons[1].name = "Kateryna";
+    // Do not do this this.state.persons[0].name = "Kateryna";
     setPersonsState({
       persons: [
-        { name: "Max", age: 28 },
         { name: "Kateryna", age: 26 },
-        { name: "Serhii", age: 27 },
+        { name: "Serhii", age: 26 },
+        { name: "Max", age: 29 },
       ],
     });
   };
 
   return (
     <div className="App">
-      <h1>Hi, I'm a React App</h1>
+      <h1>Hi, I am a React App</h1>
       <p>This is really working!</p>
       <button onClick={switchNameHandler}>Switch Name</button>
       <Person
@@ -37,16 +37,14 @@ const app = (props) => {
         name={personsState.persons[1].name}
         age={personsState.persons[1].age}
       >
-        My Hobbies Racing
+        My Hobbies: Camera
       </Person>
       <Person
         name={personsState.persons[2].name}
         age={personsState.persons[2].age}
-      >
-        Hobbies: Cameras
-      </Person>
+      />
     </div>
   );
 };
 
-export default app;
+export default App;
